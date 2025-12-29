@@ -1,0 +1,45 @@
+const PORT = process.env.PORT || 3000;
+const JWT_SECRET = process.env.JWT_SECRET || 'change-me';
+const REFRESH_JWT_SECRET = process.env.REFRESH_JWT_SECRET || JWT_SECRET;
+const ACCESS_TOKEN_TTL = process.env.ACCESS_TOKEN_TTL || '15m';
+const REFRESH_TOKEN_TTL = process.env.REFRESH_TOKEN_TTL || '30d';
+
+const CORS_ORIGINS = process.env.CORS_ORIGINS || '';
+const UPLOAD_MAX_MB = Number(process.env.UPLOAD_MAX_MB || 10);
+const ALLOWED_MIME_TYPES = (process.env.ALLOWED_MIME_TYPES || 'image/jpeg,image/png,image/webp').split(',');
+
+const RATE_LIMIT_WINDOW_MS = Number(process.env.RATE_LIMIT_WINDOW_MS || 60000);
+const RATE_LIMIT_AUTH_MAX = Number(process.env.RATE_LIMIT_AUTH_MAX || 10);
+const RATE_LIMIT_MESSAGES_MAX = Number(process.env.RATE_LIMIT_MESSAGES_MAX || 30);
+const RATE_LIMIT_CONTACT_MAX = Number(process.env.RATE_LIMIT_CONTACT_MAX || 10);
+
+const FIREBASE_STORAGE_BUCKET = process.env.FIREBASE_STORAGE_BUCKET || '';
+const FIREBASE_SERVICE_ACCOUNT_JSON = process.env.FIREBASE_SERVICE_ACCOUNT_JSON || '';
+const FIREBASE_PROJECT_ID = process.env.FIREBASE_PROJECT_ID || '';
+const FIREBASE_CLIENT_EMAIL = process.env.FIREBASE_CLIENT_EMAIL || '';
+const FIREBASE_PRIVATE_KEY = process.env.FIREBASE_PRIVATE_KEY || '';
+
+const ROOT_EMAIL = (process.env.ROOT_EMAIL || 'root').trim().toLowerCase();
+const ROOT_PASSWORD = process.env.ROOT_PASSWORD || '';
+
+module.exports = {
+  PORT,
+  JWT_SECRET,
+  REFRESH_JWT_SECRET,
+  ACCESS_TOKEN_TTL,
+  REFRESH_TOKEN_TTL,
+  CORS_ORIGINS,
+  UPLOAD_MAX_MB,
+  ALLOWED_MIME_TYPES,
+  RATE_LIMIT_WINDOW_MS,
+  RATE_LIMIT_AUTH_MAX,
+  RATE_LIMIT_MESSAGES_MAX,
+  RATE_LIMIT_CONTACT_MAX,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_SERVICE_ACCOUNT_JSON,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_CLIENT_EMAIL,
+  FIREBASE_PRIVATE_KEY,
+  ROOT_EMAIL,
+  ROOT_PASSWORD
+};
