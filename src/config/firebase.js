@@ -39,10 +39,12 @@ function loadServiceAccount() {
 
 const serviceAccount = loadServiceAccount();
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  storageBucket: FIREBASE_STORAGE_BUCKET || undefined
-});
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    storageBucket: FIREBASE_STORAGE_BUCKET || undefined
+  });
+}
 
 const db = admin.firestore();
 const bucket = FIREBASE_STORAGE_BUCKET ? admin.storage().bucket() : null;
