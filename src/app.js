@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const { CORS_ORIGINS } = require('./config/env');
 
@@ -26,6 +27,7 @@ app.use(cors({
   }
 }));
 app.use(express.json({ limit: '10mb' }));
+app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 app.get('/', (req, res) => {
   res.json({

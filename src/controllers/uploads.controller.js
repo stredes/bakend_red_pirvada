@@ -6,12 +6,10 @@ async function uploadProduct(req, res) {
   }
 
   try {
-    const result = await uploadsService.uploadProductImage(req.file);
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const result = await uploadsService.uploadProductImage(req.file, { baseUrl });
     return res.json(result);
   } catch (err) {
-    if (err.message === 'Storage bucket not configured') {
-      return res.status(500).json({ error: err.message });
-    }
     return res.status(500).json({ error: 'Upload failed' });
   }
 }
